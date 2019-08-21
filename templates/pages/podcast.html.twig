@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title '' %}
+
+
+{% block body %}
+<div class="jumbotron text-center">
+</div>
+<div class="container">
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    <h2>Download your podcasts</h2>
+    <h3>Select your source and how many to download</h3>
+    <div class="row flex">
+        {{ form_start(form) }}
+        <div class="form-row align-items-end">
+            <div class="col-md-12">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="col-md-12">
+                {{ form_row(form.limite, { 'label': 'Include' }) }}
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Download</button>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock body %}
+
+{% block javascripts %}
+<script>
+
+</script>
+
+{% endblock javascripts %}
